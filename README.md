@@ -17,9 +17,9 @@ This fork was created to **demystify Claude Code's hidden swarm mode**:
 | **Test** swarm mode on a real full-stack task | Done | [todo-app/](todo-app/) |
 | **Document** all issues and limitations found | Done | [TEAM-IMPLEMENTATION-SUMMARY.md](docs/TEAM-IMPLEMENTATION-SUMMARY.md) |
 
-### What We Found
+### What Was Found
 
-We deployed a 3-agent swarm to build a full-stack authentication system. **The task succeeded, but we discovered critical issues:**
+Claude Code (running as an isolated variant via claude-sneakpeek) deployed a 3-agent swarm to build a full-stack authentication system. **The task succeeded, but critical issues were discovered:**
 
 - **Task visibility failure** - 2 of 3 agents couldn't see assigned tasks
 - **Message delivery failure** - Direct messages were "sent" but never received
@@ -30,7 +30,7 @@ We deployed a 3-agent swarm to build a full-stack authentication system. **The t
 
 ### The Test Project
 
-We built a complete todo-app with JWT authentication using the swarm:
+Claude Code built a complete todo-app with JWT authentication using the swarm:
 - Express.js backend with bcrypt password hashing
 - Vanilla JS frontend with login/register forms
 - 42 tests passing
