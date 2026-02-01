@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Auth Container (Login/Register) -->
+    <div id="auth-container" class="auth-container">
+        <div class="auth-box">
+            <h1 id="auth-title">Login</h1>
+            <form id="auth-form">
+                <div class="form-group">
+                    <label for="auth-email">Email</label>
+                    <input
+                        type="email"
+                        id="auth-email"
+                        placeholder="Enter your email"
+                        required
+                        autocomplete="email"
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="auth-password">Password</label>
+                    <input
+                        type="password"
+                        id="auth-password"
+                        placeholder="Enter your password"
+                        required
+                        autocomplete="current-password"
+                        minlength="8"
+                    >
+                </div>
+                <div id="auth-error" class="auth-error hidden"></div>
+                <button type="submit" id="auth-submit" class="auth-btn">Login</button>
+            </form>
+            <p id="auth-toggle" class="auth-toggle">
+                Don't have an account? <a href="#" id="auth-toggle-link">Register</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- User Info Bar (shown when logged in) -->
+    <div id="user-info" class="user-info hidden">
+        <span id="user-email"></span>
+        <button id="logout-btn" class="logout-btn">Logout</button>
+    </div>
+
+    <!-- App Container (hidden until logged in) -->
+    <main id="app-container" class="container hidden" role="main">
+        <header>
+            <h1 id="app-title">Todo List</h1>
+        </header>
+
+        <form id="todo-form" aria-labelledby="app-title">
+            <label for="todo-input" class="visually-hidden">New task description</label>
+            <input
+                type="text"
+                id="todo-input"
+                placeholder="Add a new task..."
+                required
+                aria-required="true"
+                autocomplete="off"
+            >
+            <button type="submit" aria-label="Add new task">Add</button>
+        </form>
+
+        <nav class="filter-bar" role="navigation" aria-label="Filter tasks">
+            <button
+                type="button"
+                class="filter-btn active"
+                data-filter="all"
+                aria-pressed="true"
+            >
+                All
+            </button>
+            <button
+                type="button"
+                class="filter-btn"
+                data-filter="active"
+                aria-pressed="false"
+            >
+                Active
+            </button>
+            <button
+                type="button"
+                class="filter-btn"
+                data-filter="completed"
+                aria-pressed="false"
+            >
+                Completed
+            </button>
+        </nav>
+
+        <div class="task-count" aria-live="polite" aria-atomic="true">
+            <span id="task-summary"></span>
+        </div>
+
+        <ul id="todo-list" role="list" aria-label="Task list"></ul>
+
+        <footer class="app-footer">
+            <p class="keyboard-hint">
+                <kbd>Enter</kbd> to add task, <kbd>Space</kbd> to toggle, <kbd>Delete</kbd> to remove
+            </p>
+        </footer>
+    </main>
+    <script src="app.js"></script>
+    <script src="auth-ui.js"></script>
+</body>
+</html>
